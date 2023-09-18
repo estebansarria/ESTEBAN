@@ -1,0 +1,268 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #252222; /* Color de fondo del mar */
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Estilos para el encabezado */
+  header {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  background-color: #252222;
+  width: 100%;
+  box-shadow: 0 2px 30px rgba(241, 238, 238, 0.765);
+  
+  }
+  .logo{
+    width: 130px ;
+    margin-left: 30px;
+    background-size: 100% 100%;
+    background-image: url(../img/Captura_de_pantalla_2023-09-12_072159-removebg-preview.png);
+    
+  }
+  .retro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+  }
+.reparacion{
+  color: #fff;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h1{
+    display: flex;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+  .titulo{
+    display: flex;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+  }
+  
+nav{
+  display:flex ;
+  margin-top: 20PX;
+
+}
+  /* Estilos para la sección de talleres */
+  .talleres-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  }
+  
+  .taller {
+    border: 1px solid #ccc;
+    padding: 20px;
+  }
+  
+  .taller img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  
+  /* Estilos para mostrar el formulario de reserva al hacer clic en el botón "Reservar Cita" */
+  .taller.active .reserva-form {
+    display: block;
+  }
+  
+  .solicitar {
+  margin-top: 10px;
+}
+
+  .cta-button,
+  .registrar {
+  display: inline-block;
+  padding: 8px 15px;
+  color: #fff;
+  text-decoration: none;
+  margin-right: 10px;
+  border-radius: 5px;
+} 
+
+  .locales-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20px;
+  width: 80%;
+}
+
+.local-card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 22em;
+  background-color: #252222;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px;
+  color: white;
+  box-shadow: 0 2px 30px rgba(241, 238, 238, 0.765);
+}
+
+.local-card h2 {
+  margin: 0;
+  color: #f67f00;
+}
+
+.local-card p {
+  margin-top: 10px;
+}
+.local-card a{
+  text-decoration: none;
+  color: rgb(236, 234, 234);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5em;
+  border-radius: 10px;
+  height: 2em;
+}
+.servicios-details {
+  margin-top: 10px;
+}
+
+.servicios-details summary {
+  color: #f67f00;
+  cursor: pointer;
+}
+
+
+canvas {
+  display: block;
+  width: 102%;
+  z-index: 1;
+}
+footer{
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 300px;
+}
+
+.articulo2{
+  display: flex;
+  height: 200px;
+  width: 200px;
+  border-radius: 30px;
+  background-size: 100% 100%;
+  background-image: url(../img/estebannquintero___8762d3588cb068c___-removebg-preview.png);
+}
+.articulo3{
+  height: 240px;
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
+}
+.contacto{
+  display: flex;;
+
+}
+.icono1{
+  display: flex;
+  width: 40px;
+  align-items: center;
+  justify-content: center;
+}
+.fa-solid{
+  font-size: 15px;
+}
+.icono2{
+  display: flex;
+  width: 40px;
+  align-items: center;
+  justify-content: center;
+}
+.fa-envelope{
+  font-size: 10px;
+}
+.icono3{
+  display: flex;
+  width: 40px;
+  align-items: center;
+  justify-content: center;
+}
+.fa-location-dot{
+  font-size: 15px;
+}
+
+
+
+.articulo4{
+  height: 240px;
+  width: 300px;
+  flex-direction: column;
+
+
+}
+/* Estilo para la sección de contacto */
+.articulo5{
+  height: 240px;
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 30px;
+}
+.red{
+  display: flex;
+  justify-content: center;
+}
+.redes{
+  display: flex;
+  height: 100px;
+  margin-top: 10px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.redes1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 60px;
+}
+.fa-facebook{
+  font-size:30px;
+}
+.redes2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 60px;
+}
+
+.fa-instagram{
+font-size: 30px;
+
+}
+.redes3{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 60px;
+
+}
+.fa-envelope{
+  font-size: 30px;
+}
+
