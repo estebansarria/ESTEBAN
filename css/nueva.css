@@ -17,24 +17,36 @@ body {
   background-color: #252222;
   width: 100%;
   box-shadow: 0 2px 30px rgba(241, 238, 238, 0.765);
+
   
   }
   .logo{
-    width: 130px ;
-    margin-left: 30px;
+    width: 10% ;
+    margin-left: 20px;
     background-size: 100% 100%;
+    border: solid 1px;
     background-image: url(../img/Captura_de_pantalla_2023-09-12_072159-removebg-preview.png);
     
-  }
-  .retro{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 20%;
   }
 .reparacion{
   color: #fff;
   font-family: Georgia, 'Times New Roman', Times, serif;
+  padding: 20px;
+}
+
+/* Estilos para el encabezado en pantallas más pequeñas */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column; /* Cambia la dirección del flex a columna */
+    align-items: center; /* Centra los elementos verticalmente */
+    height: auto; /* Ajusta la altura automáticamente */
+  }
+
+
+
+  nav {
+    margin-top: 8px; /* Reduce el margen superior del menú */
+  }
 }
 
 h1{
@@ -163,7 +175,7 @@ footer{
   width: 200px;
   border-radius: 30px;
   background-size: 100% 100%;
-  background-image: url(../img/estebannquintero___8762d3588cb068c___-removebg-preview.png);
+  background-image: url(../img/Captura\ de\ pantalla\ 2023-09-19\ 001357.png);
 }
 .articulo3{
   height: 240px;
@@ -266,3 +278,16 @@ font-size: 30px;
   font-size: 30px;
 }
 
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column; /* Cambia la dirección del flex a columna */
+    align-items: center; /* Centra los elementos verticalmente */
+    height: auto; /* Ajusta la altura automáticamente */
+  }
+
+
+
+  nav {
+    margin-top: 8px; /* Reduce el margen superior del menú */
+  }
+}

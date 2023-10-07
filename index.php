@@ -9,7 +9,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Talleres de Mantenimiento de Motos</title>
-    <link rel="stylesheet" href="http://127.0.0.1:5501/css/nueva.css">
+    <link rel="stylesheet" href="css/nueva.css">
     <script src="https://kit.fontawesome.com/d3f9b72ddb.js" crossorigin="anonymous"></script>
   
 
@@ -18,22 +18,21 @@ session_start();
 <body>
  
 <header>
-  <section class="logo"></section>
-  <section class="retro">
+ 
   <h2 class="reparacion" >RETRO REPARACION</h2>
   </section>
   <nav>
     <div class="solicitar">
     <!-- Botón de "Solicitar Cita" -->
     <?php
-    if (isset($_SESSION['usuario_id'])) {
+    if (isset($_SESSION['usuario_id'])) {   
       echo '<a class="registrar" href="iniciarseccion.php">INICIAR SESIÓN</a>';
       echo '<a class="registrar" href="tus_citas.php">TUS CITAS</a>';
-      echo '<a class="registrar" href="cerrar_sesion.php">CERRAR SESIÍON</a>';
-       
+      echo '<a class="registrar" href="cerrar_sesion.php">CERRAR SESÍON</a>';
     } else {
       echo '<a class="cta-button" href="iniciarseccion.php">INICIAR SESIÓN</a>';
-        echo '<a class="registrar" href="registrarse.php">REGISTRARSE</a>';
+      echo '<a class="registrar" href="registrarse.php">REGISTRARSE</a>';
+
     }
     ?>
 	</div>
@@ -64,6 +63,8 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "nueva";
+
+
 
                 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -221,7 +222,7 @@ window.addEventListener("resize", () => {
     drawWaves();
 });
     </script>
-    <script src="carrusel.js"></script>
+
 
     
 </body>

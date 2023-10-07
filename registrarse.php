@@ -9,7 +9,6 @@
 <body>
     <h1>REGISTRARSE</h1>
     <form action="proceso_registro.php" method="POST">
-
     <input type="text" id=nombre name="nombre" placeholder="Nombre">
     <input type="text"id=apellido name="apellido" placeholder="Apellido">
     <input type="text" id="identidad" name="identidad" placeholder="Identidad">

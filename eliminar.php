@@ -14,6 +14,7 @@ $username = "root";
 $password = "";
 $dbname = "nueva";
 
+
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])) {
     $idEliminar = $_GET["id"];
 

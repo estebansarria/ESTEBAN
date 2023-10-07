@@ -24,6 +24,7 @@ $username = "root";
 $password = "";
 $dbname = "nueva";
 
+
             $conn = new mysqli($servername, $username, $password, $dbname);
 
             // Verificar la conexión

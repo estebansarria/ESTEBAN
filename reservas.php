@@ -15,7 +15,7 @@ if (!$usuarioHaIniciadoSesion) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservas</title>
-    <link rel="stylesheet" href="css/tus_citas.css">
+    <link rel="stylesheet" href="css/reservas2.css">
 </head>
 <body>
    
@@ -42,6 +42,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "nueva";
+
 
                     $conn = new mysqli($servername, $username, $password, $dbname);
 

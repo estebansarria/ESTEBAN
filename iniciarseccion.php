@@ -1,3 +1,61 @@
+<?php
+session_start();
+
+if (isset($_SESSION['usuario_id'])) {
+    echo '<script>alert("Ya has iniciado sesión."); window.location.href = "index.php";</script>';
+    exit();
+}
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "nueva";
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+if (!$conn) {
+    die("Conexión fallida: " . mysqli_connect_error());
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $correo = $_POST['correo'];
+    $contraseña = $_POST['contra'];
+
+    $correo = mysqli_real_escape_string($conn, $correo); // Evitar inyección de SQL
+    $contraseña = mysqli_real_escape_string($conn, $contraseña); // Evitar inyección de SQL
+
+    $sql = "SELECT * FROM usuarios WHERE correo='$correo'";
+
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $stored_password = $row['contra'];
+
+        if ($contraseña == $stored_password) { // Verificar contraseña con password_verify
+            $_SESSION['nombre'] = $row['nombre'];
+            $_SESSION['usuario_id'] = $row['id'];
+            $_SESSION['correo'] = $row['correo'];
+            $tipo_usuario = $row['tipo_usuario'];
+
+            if ($tipo_usuario == 'admin') {
+                header("Location: admin/index.php"); // Redirigir usando header
+                exit();
+            } elseif ($tipo_usuario == 'usuario') {
+                header("Location: index.php"); // Redirigir usando header
+                exit();
+            }
+        } else {
+            echo "La contraseña ingresada es incorrecta";
+        }
+    } else {
+        echo "El correo electrónico no está registrado";
+    }
+
+    mysqli_close($conn);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,70 +86,5 @@
         
     </div>
 </div>
-
-<?php
-// Iniciar la sesión (necesario para utilizar $_SESSION)
-session_start();
-
-if (isset($_SESSION['usuario_id'])) {
-    echo '<script>alert("Ya has iniciado sesión."); window.location.href = "index.php";</script>';
-    exit();
-}
-
-// Comprobar si se ha enviado el formulario
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-// Conexión a la base de datos (debes completar los datos)
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "nueva";
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
-
-    if (!$conn) {
-        die("Conexión fallida: " . mysqli_connect_error());
-    }
-
-    // Obtener los datos del formulario
-    $correo = $_POST['correo'];
-    $contraseña = $_POST['contra'];
-
-    // Realizar la consulta SELECT para validar si los datos existen
-    $sql = "SELECT * FROM usuarios WHERE correo='$correo'";
-
-    $result = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        $stored_password = $row['contra'];
-        $_SESSION['nombre'] = $row['nombre'];
-        $_SESSION['usuario_id'] = $row['id'];
-        $_SESSION['correo']= $row['correo'];
-        $tipo_usuario = $row['tipo_usuario']; // Agrega el campo "tipo" en tu tabla usuarios
-
-        // Verificar la contraseña
-        if ($stored_password == $contraseña) {
-            // La contraseña es correcta
-            if ($tipo_usuario == 'admin') {
-                // Usuario administrador, redirigir a index.php
-                echo "<script>window.location.href = 'admin/index.html';</script>";
-            } elseif ($tipo_usuario == 'usuario') {
-                // Usuario normal, redirigir a index.html
-                echo "<script>window.location.href = 'index.php';</script>";
-            }
-        } else {
-            // La contraseña ingresada es incorrecta
-            echo "La contraseña ingresada es incorrecta";
-        }
-    } else {
-        // Los datos no existen en la base de datos
-        echo "El correo electrónico no está registrado";
-    }
-
-    // Cerrar la conexión a la base de datos
-    mysqli_close($conn);
-}
-?>
-
 </body>
 </html>

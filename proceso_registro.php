@@ -1,24 +1,26 @@
 
 <?php
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
 // Conexión a la base de datos (debes completar los datos)
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "nueva";
+
         $conn = mysqli_connect($servername, $username, $password, $dbname);
 
         if (!$conn) {
             die("Conexión fallida: " . mysqli_connect_error());
         }
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
 
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
         $identidad = $_POST['identidad'];
         $correo = $_POST['correo'];
         $contraseña = $_POST['password'];
+        $tipo_usuario = 'usuario';
 
         if (empty($nombre) || empty($apellido) || empty($identidad) || empty($correo) || empty($contraseña)) {
             echo "<script> alert('Por favor, completa todos los campos antes de enviar el formulario.'); </script>";
@@ -36,7 +38,7 @@ $dbname = "nueva";
             exit();
         }
     
-        $sql = "INSERT INTO usuarios (nombre, apellido, identidad, correo, contra) VALUES ('$nombre', '$apellido', '$identidad', '$correo', '$contraseña')";
+        $sql = "INSERT INTO usuarios (nombre, apellido, identidad, correo, contra, tipo_usuario) VALUES ('$nombre', '$apellido', '$identidad', '$correo', '$contraseña','$tipo_usuario')";
     
 
         if (mysqli_query($conn, $sql)) {

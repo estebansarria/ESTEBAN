@@ -15,12 +15,14 @@
             color: #fff;
             padding: 20px;
             text-align: center;
+            flex-direction: row;
         }
 
         header a {
             color: #fff;
             text-decoration: none;
             margin-right: 20px;
+            
         }
 
         .container {
@@ -30,6 +32,7 @@
             background-color: #fff;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
         }
 
         h1 {
